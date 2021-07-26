@@ -4,7 +4,7 @@ import com.jarhax.prestige.Prestige;
 import crafttweaker.*;
 import crafttweaker.annotations.ZenRegister;
 import crafttweaker.api.potions.IPotionEffect;
-import crafttweaker.mc1120.potions.MCPotionEfect;
+import crafttweaker.mc1120.potions.MCPotionEffect;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.*;
 import stanhebben.zenscript.annotations.*;
@@ -58,7 +58,7 @@ public class CRTRewards {
                 List<IReward> list = Prestige.REWARDS.getOrDefault(name, new LinkedList<>());
                 list.add((ITickingReward) (world, player) -> {
                     if(!player.isPotionActive(potion.getPotion()) || player.getActivePotionEffect(potion.getPotion()).getDuration() < Math.ceil(potion.getDuration() / 2))
-                        player.addPotionEffect(new MCPotionEfect(new PotionEffect((Potion) potion.getPotion().getInternal(), potion.getDuration(), potion.getAmplifier(), potion.isAmbient(), potion.doesShowParticles())));
+                        player.addPotionEffect(new MCPotionEffect(new PotionEffect((Potion) potion.getPotion().getInternal(), potion.getDuration(), potion.getAmplifier(), potion.isAmbient(), potion.doesShowParticles())));
                 });
                 Prestige.REWARDS.put(name, list);
             }
